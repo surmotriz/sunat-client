@@ -14,13 +14,14 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import Tabla from './tabla';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     width: '100%',
-    height: 730,
+    height: '100%',
     marginTop: 0,
     zIndex: 1,
     overflow: 'hidden',
@@ -100,7 +101,7 @@ const styles = theme => ({
 
 class MiniDrawer extends React.Component {
   state = {
-    open: false,
+    open: true,
   };
 
   handleDrawerOpen = () => {
@@ -128,7 +129,7 @@ class MiniDrawer extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography type="title" color="inherit" noWrap>
-                Mini variant drawer
+                Facturacion Electronica
               </Typography>
             </Toolbar>
           </AppBar>
@@ -152,9 +153,8 @@ class MiniDrawer extends React.Component {
             </div>
           </Drawer>
           <main className={classes.content}>
-            <Typography type="body1" noWrap>
-              {'tabla'}
-            </Typography>
+            <Tabla/>
+            
           </main>
         </div>
       </div>
