@@ -19,17 +19,18 @@ import DeleteIcon from 'material-ui-icons/Delete';
 import FilterListIcon from 'material-ui-icons/FilterList';
 
 let counter = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, calories, fat, carbs, protein, acciones) {
   counter += 1;
-  return { id: counter, name, calories, fat, carbs, protein };
+  return { id: counter, name, calories, fat, carbs, protein, acciones };
 }
 
 const columnData = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+  { id: 'name', numeric: false, disablePadding: true, label: 'Numero' },
+  { id: 'calories', numeric: true, disablePadding: false, label: 'Cliente' },
+  { id: 'fat', numeric: true, disablePadding: false, label: 'Anulado' },
+  { id: 'carbs', numeric: true, disablePadding: false, label: 'Total' },
+  { id: 'protein', numeric: true, disablePadding: false, label: 'Sunat' },
+  { id: 'acciones', numeric: true, disablePadding: false, label: 'Acciones' },
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -53,8 +54,8 @@ class EnhancedTableHead extends React.Component {
         <TableRow>
           <TableCell checkbox>
             <Checkbox
-              indeterminate={numSelected > 0 && numSelected < 5}
-              checked={numSelected === 5}
+              indeterminate={numSelected > 0 && numSelected < 6}
+              checked={numSelected === 6}
               onChange={onSelectAllClick}
             />
           </TableCell>
@@ -119,7 +120,7 @@ let EnhancedTableToolbar = props => {
         {numSelected > 0 ? (
           <Typography type="subheading">{numSelected} selected</Typography>
         ) : (
-          <Typography type="title">Nutrition</Typography>
+          <Typography type="title">Facturas del dia 07-09-2017</Typography>
         )}
       </div>
       <div className={classes.spacer} />
@@ -159,26 +160,7 @@ class EnhancedTable extends React.Component {
     orderBy: 'calories',
     selected: [],
     data: [
-      createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-      createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-      createData('Eclair', 262, 16.0, 24, 6.0),
-      createData('Cupcake', 305, 3.7, 67, 4.3),
-      createData('Gingerbread', 356, 16.0, 49, 3.9),
-      createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-      createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-      createData('Eclair', 262, 16.0, 24, 6.0),
-      createData('Cupcake', 305, 3.7, 67, 4.3),
-      createData('Gingerbread', 356, 16.0, 49, 3.9),
-      createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-      createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-      createData('Eclair', 262, 16.0, 24, 6.0),
-      createData('Cupcake', 305, 3.7, 67, 4.3),
-      createData('Gingerbread', 356, 16.0, 49, 3.9),
-      createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-      createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-      createData('Eclair', 262, 16.0, 24, 6.0),
-      createData('Cupcake', 305, 3.7, 67, 4.3),
-      createData('Gingerbread', 356, 16.0, 49, 3.9),
+      createData('F001-17595','constructora y consultora', 'NO', '33,457.10', '0001','PDF'),
     ],
   };
 
